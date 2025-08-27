@@ -73,7 +73,8 @@ jobs:
     - name: executing remote ssh commands to develop
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.NAME }}
-        key: ${{ secrets.KEY }}
-        script: bash run.sh
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.NAME }}
+          password: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: bash run.sh
