@@ -16,7 +16,7 @@
 
             <el-card class="card">
                 <p class="label">产品图</p>
-                <el-upload action="http://localhost:11451/api/campus-product-sys/v1.0/file/upload"
+                <el-upload action="http://localhost:31451/api/campus-product-sys/v1.0/file/upload"
                     list-type="picture-card" :on-success="handlePictureCardSuccess"
                     :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
                     <i class="el-icon-plus"></i>

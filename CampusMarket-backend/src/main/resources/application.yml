@@ -1,6 +1,6 @@
 # 服务配置
 server:
-  port: 11451
+  port: 31451
   servlet:
     context-path: /api/campus-product-sys/v1.0
 # API地址前缀，用于接口拦截放行

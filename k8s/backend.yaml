@@ -5,7 +5,7 @@ metadata:
   labels:
     app: backend
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: backend
@@ -16,22 +16,16 @@ spec:
     spec:
       containers:
         - name: backend
-          image: eioko/backend:tag  # 替换为您的后端镜像
+          image: eioko/backend:latest  # 替换为你的镜像名称
           ports:
-            - containerPort: 11451 # 根据您的后端实际端口修改
-          env:
-            - name: NODE_ENV
-              value: "production"
+            - containerPort: 31451  # 替换为你的应用端口
           resources:
             requests:
-              memory: "256Mi"
-              cpu: "250m"
+              memory: "512Mi"
+              cpu: "512m"
             limits:
               memory: "512Mi"
-              cpu: "500m"
-      imagePullSecrets:
-        - name: dockerhub-secret  # 如果DockerHub镜像需要认证，请创建此secret
-
+              cpu: "1000m"
 ---
 apiVersion: v1
 kind: Service
@@ -42,6 +36,7 @@ spec:
     app: backend
   ports:
     - protocol: TCP
-      port: 11451
-      targetPort: 11451
-  type: ClusterIP
+      port: 31451
+      targetPort: 31451  # 与容器端口一致
+      nodePort: 31451
+  type: NodePort

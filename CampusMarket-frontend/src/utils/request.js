@@ -1,6 +1,6 @@
 import axios from "axios"
 import { getToken } from "@/utils/storage.js";
-const URL_API = 'http://localhost:11451/api/campus-product-sys/v1.0'
+const URL_API = 'http://localhost:31451/api/campus-product-sys/v1.0'
 const request = axios.create({
   baseURL: URL_API,
   timeout: 8000

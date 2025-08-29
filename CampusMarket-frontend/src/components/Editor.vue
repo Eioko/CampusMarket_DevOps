@@ -31,7 +31,7 @@ export default Vue.extend({
                 placeholder: '请输入内容...',
                 MENU_CONF: {
                     uploadImage: {
-                        server: 'http://localhost:11451/api/campus-product-sys/v1.0/file/upload',
+                        server: 'http://localhost:31451/api/campus-product-sys/v1.0/file/upload',
                         fieldName: 'file',
                         maxFileSize: 10 * 1024 * 1024,
                         maxNumberOfFiles: 10,
