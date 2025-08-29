@@ -36,7 +36,7 @@ spec:
     app: backend
   ports:
     - protocol: TCP
-      port: 31451
+      port: 1000
       targetPort: 31451  # 与容器端口一致
       nodePort: 31451
   type: NodePort
