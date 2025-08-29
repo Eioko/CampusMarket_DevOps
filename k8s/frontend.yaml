@@ -51,7 +51,7 @@ spec:
     app: frontend
   ports:
     - protocol: TCP
-      port: 31452
+      port: 80
       targetPort: 31452  # 与容器端口一致
       nodePort: 31452
   type: NodePort
