@@ -76,7 +76,7 @@ jobs:
 
       - name: Deploy Backend Application
         shell: cmd
-        run: kubectl --kubeconfig="E:\config" apply -f "E:\tryGithubActions\CampusMarket_DevOps\k8s\backend.yaml"
+        run: kubectl --kubeconfig="E:\config" apply -f "E:\tryGithubActions\CampusMarket_DevOps\k8s\"
 
       - name: Set up Kubernetes access
         shell: cmd
