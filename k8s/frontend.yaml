@@ -28,7 +28,7 @@ spec:
               cpu: "200m"
           env:
             - name: REACT_APP_API_URL  # 示例环境变量，根据实际需要调整
-              value: "http://localhost:1000"
+              value: "http://backend-service:1000"
           livenessProbe:
             httpGet:
               path: /  # 或使用特定的健康检查端点
