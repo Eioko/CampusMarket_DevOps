@@ -61,7 +61,7 @@ public class LayerDashboardServiceImpl implements DashboardService {
         ProductQueryDto productQueryDto = new ProductQueryDto();
         productQueryDto.setStartTime(queryDto.getStartTime());
         productQueryDto.setEndTime(queryDto.getEndTime());
-        List<ProductVO> productVOS = layerProductMapper.query(productQueryDto);
+        List<ProductVO> productVOS = layerProductMapper.query(productQueryDto);//
 
         List<LocalDateTime> dateTimeList = productVOS.stream()
                 .map(ProductVO::getCreateTime)
