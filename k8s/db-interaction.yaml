@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-interaction-deployment
+  labels:
+    app: db-interaction
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-interaction
+  template:
+    metadata:
+      labels:
+        app: db-interaction
+    spec:
+      containers:
+        - name: db-interaction
+          image: eioko/database:latest  # 替换为你的镜像名称
+          ports:
+            - containerPort: 31600  # 替换为你的应用端口
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "512m"
+            limits:
+              memory: "512Mi"
+              cpu: "1000m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-interaction-service
+spec:
+  selector:
+    app: db-interaction
+  ports:
+    - protocol: TCP
+      port: 31600
+      targetPort: 31600  # 与容器端口一致
+      nodePort: 31600
+  type: LoadBalancer

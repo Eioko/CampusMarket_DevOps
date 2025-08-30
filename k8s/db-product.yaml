@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-product-deployment
+  labels:
+    app: db-product
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-product
+  template:
+    metadata:
+      labels:
+        app: db-product
+    spec:
+      containers:
+        - name: db-product
+          image: eioko/database:latest  # 替换为你的镜像名称
+          ports:
+            - containerPort: 31601  # 替换为你的应用端口
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "512m"
+            limits:
+              memory: "512Mi"
+              cpu: "1000m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-product-service
+spec:
+  selector:
+    app: db-product
+  ports:
+    - protocol: TCP
+      port: 31601
+      targetPort: 31601  # 与容器端口一致
+      nodePort: 31601
+  type: LoadBalancer
