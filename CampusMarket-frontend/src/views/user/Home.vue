@@ -6,7 +6,7 @@
       </div>
       <div class="nav-links">
         <span @click="handleRouteSelect('/product')">商品</span>
-        <span v-if="loginStatus" @click="handleRouteSelect('/myProduct')">谁的商品</span>
+        <span v-if="loginStatus" @click="handleRouteSelect('/myProduct')">我的商品</span>
         <span v-if="loginStatus" @click="handleRouteSelect('/mySave')">我的收藏</span>
         <span v-if="loginStatus" @click="handleRouteSelect('/star')">我的关注</span>
         <span v-if="loginStatus" @click="handleRouteSelect('/myView')">足迹</span>
