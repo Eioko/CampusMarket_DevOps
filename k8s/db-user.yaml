@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-user-deployment
+  labels:
+    app: db-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-user
+  template:
+    metadata:
+      labels:
+        app: db-user
+    spec:
+      containers:
+        - name: db-user
+          image: eioko/database:latest  # 替换为你的镜像名称
+          ports:
+            - containerPort: 31602  # 替换为你的应用端口
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "512m"
+            limits:
+              memory: "512Mi"
+              cpu: "1000m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-user-service
+spec:
+  selector:
+    app: db-user
+  ports:
+    - protocol: TCP
+      port: 31602
+      targetPort: 31602  # 与容器端口一致
+      nodePort: 31602
+  type: LoadBalancer

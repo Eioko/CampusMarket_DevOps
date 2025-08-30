@@ -84,6 +84,9 @@ jobs:
 
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest ./CampusMarket-frontend
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
+          
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/database:latest ./database
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/database:latest
 
   deploy-to-local:
     needs: build
@@ -96,6 +99,9 @@ jobs:
           kubectl --kubeconfig="E:\config" apply -f "E:\tryGithubActions\CampusMarket_DevOps\k8s\backend-product.yaml"
           kubectl --kubeconfig="E:\config" apply -f "E:\tryGithubActions\CampusMarket_DevOps\k8s\backend-user.yaml"
           kubectl --kubeconfig="E:\config" apply -f "E:\tryGithubActions\CampusMarket_DevOps\k8s\frontend.yaml"
+          kubectl --kubeconfig="E:\config" apply -f "E:\tryGithubActions\CampusMarket_DevOps\k8s\db-interaction.yaml"
+          kubectl --kubeconfig="E:\config" apply -f "E:\tryGithubActions\CampusMarket_DevOps\k8s\db-product.yaml"
+          kubectl --kubeconfig="E:\config" apply -f "E:\tryGithubActions\CampusMarket_DevOps\k8s\db-user.yaml"
 
       - name: Deploy to K8s
         shell: cmd
@@ -104,3 +110,6 @@ jobs:
           kubectl --kubeconfig=E:\config set image deployment/backend-product-deployment backend-product=${{ secrets.DOCKERHUB_USERNAME }}/backend-product:latest
           kubectl --kubeconfig=E:\config set image deployment/backend-user-deployment backend-user=${{ secrets.DOCKERHUB_USERNAME }}/backend-user:latest
           kubectl --kubeconfig=E:\config set image deployment/frontend-deployment frontend=${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
+          kubectl --kubeconfig=E:\config set image deployment/db-product-deployment db-product=${{ secrets.DOCKERHUB_USERNAME }}/db:latest
+          kubectl --kubeconfig=E:\config set image deployment/db-user-deployment db-user=${{ secrets.DOCKERHUB_USERNAME }}/db:latest
+          kubectl --kubeconfig=E:\config set image deployment/db-interaction-deployment db-interaction=${{ secrets.DOCKERHUB_USERNAME }}/db:latest
