@@ -8,6 +8,8 @@ const request = axios.create({
 //全局拦截器
 request.interceptors.request.use(config => {
   let type = config.url.split("/")[1];
+  console.log(type + " asdasd ");
+  console.log(config.url + " asdasd ");
 
   // 根据路由判断,后台地址是哪个
   switch (type) {
@@ -23,8 +25,7 @@ request.interceptors.request.use(config => {
       config.baseURL = "http://localhost:31451/api/campus-product-sys/v1.0";
       break;
   }
-  // console.log(type + " asdasd ");
-  // console.log(config.baseURL);
+  console.log(config.baseURL);
 
   const token = getToken();
   if (token !== null) {

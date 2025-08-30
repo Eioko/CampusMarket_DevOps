@@ -48,7 +48,7 @@ export default {
       const hashedPwd = md5(md5(this.pwd));
       const paramDTO = { userAccount: this.act, userPwd: hashedPwd };
       try {
-        const { data } = await request.post(`user/login`, paramDTO);
+        const { data } = await request.post(`/user/login`, paramDTO);
         if (data.code !== 200) {
           this.$swal.fire({
             title: '登录失败',
