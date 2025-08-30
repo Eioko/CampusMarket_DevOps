@@ -92,7 +92,15 @@ jobs:
       - name: Deploy Backend Application
         shell: cmd
         run: |
-          kubectl apply -f "F:\Documents\Workspace\ruangong\xiaoxueqi\111\CampusMarket_DevOps\k8s\backend-interaction.yaml"
-          kubectl apply -f "F:\Documents\Workspace\ruangong\xiaoxueqi\111\CampusMarket_DevOps\k8s\backend-product.yaml"
-          kubectl apply -f "F:\Documents\Workspace\ruangong\xiaoxueqi\111\CampusMarket_DevOps\k8s\backend-user.yaml"
-          kubectl apply -f "F:\Documents\Workspace\ruangong\xiaoxueqi\111\CampusMarket_DevOps\k8s\frontend.yaml"
+          kubectl --kubeconfig="E:\config" apply -f "E:\tryGithubActions\CampusMarket_DevOps\k8s\backend-interaction.yaml"
+          kubectl --kubeconfig="E:\config" apply -f "E:\tryGithubActions\CampusMarket_DevOps\k8s\backend-product.yaml"
+          kubectl --kubeconfig="E:\config" apply -f "E:\tryGithubActions\CampusMarket_DevOps\k8s\backend-user.yaml"
+          kubectl --kubeconfig="E:\config" apply -f "E:\tryGithubActions\CampusMarket_DevOps\k8s\frontend.yaml"
+
+      - name: Deploy to K8s
+        shell: cmd
+        run: |
+          kubectl --kubeconfig=E:\config set image deployment/backend-interaction-deployment backend-interaction=${{ secrets.DOCKERHUB_USERNAME }}/backend-interaction:latest
+          kubectl --kubeconfig=E:\config set image deployment/backend-product-deployment backend-product=${{ secrets.DOCKERHUB_USERNAME }}/backend-product:latest
+          kubectl --kubeconfig=E:\config set image deployment/backend-user-deployment backend-user=${{ secrets.DOCKERHUB_USERNAME }}/backend-user:latest
+          kubectl --kubeconfig=E:\config set image deployment/frontend-deployment frontend=${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend-interaction
-          image: lprlpr/backend-interaction:latest  # 替换为你的镜像名称
+          image: eioko/backend-interaction:latest  # 替换为你的镜像名称
           ports:
             - containerPort: 31451  # 替换为你的应用端口
           resources:

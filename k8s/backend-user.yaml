@@ -15,8 +15,8 @@ spec:
         app: backend-user
     spec:
       containers:
-        - name: backend
-          image: lprlpr/backend-user:latest  # 替换为你的镜像名称
+        - name: backend-user
+          image: eioko/backend-user:latest  # 替换为你的镜像名称
           ports:
             - containerPort: 31449  # 替换为你的应用端口
           resources:

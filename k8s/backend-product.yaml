@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend-product
-          image: lprlpr/backend-product:latest  # 替换为你的镜像名称
+          image: eioko/backend-product:latest  # 替换为你的镜像名称
           ports:
             - containerPort: 31450  # 替换为你的应用端口
           resources:
