@@ -25,7 +25,7 @@ public class LayerFileController {
     @Value("${my-server.api-context-path}")
     private String apiContextPath;
 
-    private static final String BASE_URL = "http://localhost:31451";
+    private static final String BASE_URL = "https://market.charactex.com:11451";
 
     /**
      * 上传图片文件
