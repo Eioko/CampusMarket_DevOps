@@ -113,3 +113,7 @@ jobs:
           kubectl --kubeconfig=E:\config set image deployment/db-product-deployment db-product=${{ secrets.DOCKERHUB_USERNAME }}/db:latest
           kubectl --kubeconfig=E:\config set image deployment/db-user-deployment db-user=${{ secrets.DOCKERHUB_USERNAME }}/db:latest
           kubectl --kubeconfig=E:\config set image deployment/db-interaction-deployment db-interaction=${{ secrets.DOCKERHUB_USERNAME }}/db:latest
+
+      - name: scale out or in
+        shell: cmd
+        run: kubectl scale deployment frontend-deployment --replicas=2
