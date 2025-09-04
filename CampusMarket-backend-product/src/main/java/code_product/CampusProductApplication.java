@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         "code_product",  // 业务模块的包
         "com" // 公共模块的包
 })
-public class CampusProductApplication {//
+public class CampusProductApplication {
     public static void main(String[] args) {
         SpringApplication.run(CampusProductApplication.class, args);
     }
