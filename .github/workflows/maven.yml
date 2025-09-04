@@ -49,13 +49,14 @@ jobs:
           mvn clean install -DskipTests
 
       - name: Save common artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: campus-common
           path: campus-common/target/*.jar
+          compression-level: 0 # 禁用压缩
 
       - name: Download common artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: campus-common
           path: campus-common/target
