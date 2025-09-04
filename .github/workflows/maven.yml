@@ -37,6 +37,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }} # 在GitHub仓库设置中配置此Secret
+
+      - name: Install parent POM
+        run: mvn clean install -N
+
       - name: Build interaction with Maven
         run: |
           cd CampusMarket-backend-interaction
