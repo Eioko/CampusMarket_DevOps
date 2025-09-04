@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="code_sys.LayerMap.LayerStarMapper">
+<mapper namespace="code_product.LayerMap.LayerStarMapper">
 
     <insert id="save">
         INSERT INTO star (user1_id,user2_id)
@@ -33,7 +33,7 @@
     </select>
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="code_sys.Po.Vo.StarVo">
+    <resultMap id="BaseResultMap" type="code_product.Po.Vo.StarVo">
         <id column="id" property="id"/>
         <result column="user1_id" property="user1Id"/>
         <result column="user2_id" property="user2Id"/>

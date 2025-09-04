@@ -41,12 +41,6 @@ jobs:
       - name: Install parent POM
         run: mvn clean install -N
 
-      - name: Build interaction with Maven
-        run: |
-          cd CampusMarket-backend-interaction
-          mvn test
-          mvn clean package
-
       - name: Build common with Maven
         run: |
           cd campus-common
@@ -74,6 +68,12 @@ jobs:
       - name: Build product with Maven
         run: |
           cd CampusMarket-backend-product
+          mvn test
+          mvn clean package
+
+      - name: Build interaction with Maven
+        run: |
+          cd CampusMarket-backend-interaction
           mvn test
           mvn clean package
 
