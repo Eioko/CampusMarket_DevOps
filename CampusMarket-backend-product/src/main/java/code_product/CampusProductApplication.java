@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * 项目启动类
  */
+@MapperScan("com.LayerMap")
 @MapperScan("code_product.LayerMap")
 @SpringBootApplication(scanBasePackages = {
         "code_product",  // 业务模块的包
