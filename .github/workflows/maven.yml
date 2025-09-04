@@ -42,20 +42,41 @@ jobs:
           cd CampusMarket-backend-interaction
           mvn test
           mvn clean package
+
+      - name: Build common with Maven
+        run: |
+          cd campus-common
+          mvn clean install -DskipTests
+
+      - name: Save common artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: campus-common
+          path: campus-common/target/*.jar
+
+      - name: Download common artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: campus-common
+          path: campus-common/target
+
       - name: Build user with Maven
         run: |
           cd CampusMarket-backend-user
           mvn test
           mvn clean package
+
       - name: Build product with Maven
         run: |
           cd CampusMarket-backend-product
           mvn test
           mvn clean package
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '14.16.0' # 指定 Node.js 版本
+
       - name: Cache node modules
         uses: actions/cache@v3
         with:
@@ -64,6 +85,7 @@ jobs:
           
           restore-keys: |
             ${{ runner.os }}-node-
+
       - name: frontend
         run: |
           cd CampusMarket-frontend

@@ -1,16 +1,15 @@
 package code_sys.LayerService;
 
-import code_sys.Po.Api.Result;
-import code_sys.Po.Dto.query.sons.UserQueryDto;
-import code_sys.Po.Dto.update.UserLoginDTO;
-import code_sys.Po.Dto.update.UserPwdUpdateDTO;
-import code_sys.Po.Dto.update.UserRegisterDTO;
-import code_sys.Po.Dto.update.UserUpdateDTO;
-import code_sys.Po.Entity.User;
-import code_sys.Po.Vo.UserVO;
+import com.Po.Api.Result;
+import com.Po.Dto.query.sons.UserQueryDto;
+import com.Po.Dto.update.UserLoginDTO;
+import com.Po.Dto.update.UserPwdUpdateDTO;
+import com.Po.Dto.update.UserRegisterDTO;
+import com.Po.Dto.update.UserUpdateDTO;
+import com.Po.Entity.User;
+import com.Po.Vo.UserVO;
 
 import java.util.List;
-import java.util.Map;
 
 public interface UserService {
     Result<String> register(UserRegisterDTO userRegisterDTO);

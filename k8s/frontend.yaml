@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: eioko/frontend:latest  # 替换为你的前端镜像
+          image: eioko/frontend:latest
           ports:
-            - containerPort: 31452  # 常见前端端口，根据实际应用调整
+            - containerPort: 31452
           resources:
             requests:
               memory: "128Mi"

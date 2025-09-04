@@ -1,12 +1,12 @@
 package code_sys.LayerControl;
 
-import code_sys.Aop.Pager;
-import code_sys.Aop.Protector;
-import code_sys.Po.Api.Result;
-import code_sys.Po.Dto.query.sons.UserQueryDto;
-import code_sys.Po.Dto.update.*;
-import code_sys.Po.Entity.User;
-import code_sys.Po.Vo.UserVO;
+import com.Aop.Pager;
+import com.Aop.Protector;
+import com.Po.Api.Result;
+import com.Po.Dto.query.sons.UserQueryDto;
+import com.Po.Dto.update.UserUpdateDTO;
+import com.Po.Entity.User;
+import com.Po.Vo.UserVO;
 import code_sys.LayerService.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +21,7 @@ public class LayerUserController {
     private UserService userService;
 
     @PostMapping("/login")
-    public Result<Object> login(@RequestBody UserLoginDTO userLoginDTO) {
+    public Result<Object> login(@RequestBody com.Po.Dto.update.UserLoginDTO userLoginDTO) {
         return userService.login(userLoginDTO);
     }
 
@@ -39,13 +39,13 @@ public class LayerUserController {
     }
 
     @PostMapping("/register")
-    public Result<String> register(@RequestBody UserRegisterDTO userRegisterDTO) {
+    public Result<String> register(@RequestBody com.Po.Dto.update.UserRegisterDTO userRegisterDTO) {
         return userService.register(userRegisterDTO);
     }
 
     @Protector(role = "管理员")
     @PostMapping("/insert")
-    public Result<String> insert(@RequestBody UserRegisterDTO userRegisterDTO) {
+    public Result<String> insert(@RequestBody com.Po.Dto.update.UserRegisterDTO userRegisterDTO) {
         return userService.insert(userRegisterDTO);
     }
 
@@ -62,7 +62,7 @@ public class LayerUserController {
     }
 
     @PutMapping("/updatePwd")
-    public Result<String> updatePwd(@RequestBody UserPwdUpdateDTO dto) {
+    public Result<String> updatePwd(@RequestBody com.Po.Dto.update.UserPwdUpdateDTO dto) {
         return userService.updatePwd(dto);
     }
 
