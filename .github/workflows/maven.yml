@@ -136,4 +136,4 @@ jobs:
 
       - name: scale out or in
         shell: cmd
-        run: kubectl --kubeconfig=E:\config scale deployment frontend-deployment --replicas=2
+        run: kubectl --kubeconfig=E:\config scale deployment backend-user-deployment --replicas=2
