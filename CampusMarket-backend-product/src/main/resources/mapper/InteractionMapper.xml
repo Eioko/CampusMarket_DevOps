@@ -3,7 +3,7 @@
 <mapper namespace="code_product.LayerMap.LayerInteractionMapper">
 
     <!-- 基础字段映射 -->
-    <resultMap id="BaseResultMap" type="code_product.Po.Vo.InteractionVO">
+    <resultMap id="BaseResultMap" type="com.Po.Vo.InteractionVO">
         <id column="id" property="id"/>
         <result column="user_id" property="userId"/>
         <result column="product_id" property="productId"/>

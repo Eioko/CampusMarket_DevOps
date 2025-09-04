@@ -147,7 +147,7 @@
     </select>
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="code_product.Po.Vo.ProductVO">
+    <resultMap id="BaseResultMap" type="com.Po.Vo.ProductVO">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="detail" property="detail"/>

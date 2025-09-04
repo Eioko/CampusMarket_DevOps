@@ -22,7 +22,7 @@
     </sql>
 
     <!-- 新增订单 -->
-    <insert id="save" parameterType="code_product.Po.Entity.Orders" useGeneratedKeys="true" keyProperty="id">
+    <insert id="save" parameterType="com.Po.Entity.Orders" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO orders (
         <include refid="insertColumns"/>
         ) VALUES (
@@ -33,7 +33,7 @@
     </insert>
 
     <!-- 更新订单 -->
-    <update id="update" parameterType="code_product.Po.Entity.Orders">
+    <update id="update" parameterType="com.Po.Entity.Orders">
         UPDATE orders
         <trim prefix="SET" suffixOverrides=",">
             <if test="detail != null and detail != ''">detail = #{detail},</if>
@@ -133,7 +133,7 @@
     </select>
 
     <!-- 根据ID查询订单 -->
-    <select id="findById" resultType="code_product.Po.Entity.Orders">
+    <select id="findById" resultType="com.Po.Entity.Orders">
         SELECT <include refid="baseColumns"/>
         FROM orders
         WHERE id = #{id}
@@ -173,7 +173,7 @@
     </select>
 
     <!-- 订单VO结果映射 -->
-    <resultMap id="OrdersVOMap" type="code_product.Po.Vo.OrdersVO">
+    <resultMap id="OrdersVOMap" type="com.Po.Vo.OrdersVO">
         <id column="id" property="id"/>
         <result column="code" property="code"/>
         <result column="detail" property="detail"/>

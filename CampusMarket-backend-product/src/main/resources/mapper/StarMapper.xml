@@ -33,7 +33,7 @@
     </select>
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="code_product.Po.Vo.StarVo">
+    <resultMap id="BaseResultMap" type="com.Po.Vo.StarVo">
         <id column="id" property="id"/>
         <result column="user1_id" property="user1Id"/>
         <result column="user2_id" property="user2Id"/>

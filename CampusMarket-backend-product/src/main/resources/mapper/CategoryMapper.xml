@@ -63,7 +63,7 @@
     </select>
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="code_product.Po.Entity.Category">
+    <resultMap id="BaseResultMap" type="com.Po.Entity.Category">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="is_use" property="isUse"/>
